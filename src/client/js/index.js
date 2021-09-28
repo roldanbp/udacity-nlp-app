@@ -21,7 +21,6 @@ const loadingDataView = ({ loadingDisplay, contentDisplay }) => {
 }
 
 const updateUI = (data) => {    
-    console.log
     model.textContent = data.model;
     agreement.textContent = data.agreement;
     confidence.textContent = data.confidence;

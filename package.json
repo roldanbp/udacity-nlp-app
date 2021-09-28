@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start-dev": "webpack --config webpack.dev.js && node src/server",
-    "build-dev": "webpack --config webpack.dev.js",
-    "start-prod": "webpack --config webpack.prod.js && node src/server",
-    "build-prod": "webpack --config webpack.prod.js"
+    "start": "node src/server",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
   },
   "keywords": [],
   "author": "Roldan Barreto",
@@ -40,6 +39,7 @@
     "html-webpack-plugin": "^5.3.2",
     "jest-fetch-mock": "^3.0.3",
     "node-fetch": "^2.6.3",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "webpack-dev-server": "^4.3.0"
   }
 }
