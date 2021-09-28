@@ -1,0 +1,100 @@
+
+@import './commons/index.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-primarly;
+    font-size: $font-size-16;
+    font-weight: $font-weight-regular;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-background;
+    height: 90vh;
+    
+    &__message-error {
+        display: none;
+        margin-top: $space-element-20;
+        color: red;
+    }
+    
+    &__title-container {
+        .title-container__text {
+            padding: $space-element-10;
+            font-size: $font-size-60;
+        }
+    }
+    
+    &__loading {
+        width: 200px;
+        margin-top: $space-element-40;
+        display: none;
+    }
+}
+
+.input {
+    border-radius:$space-element-10 0 0 $space-element-10;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+    padding: $space-element-10;
+}
+
+.button {
+    border-radius:0 $space-element-10 $space-element-10 0;
+    background-color: $color-blue;
+    border: 1px solid $color-blue;
+    padding: $space-element-10;
+    color: white;
+    transition: .3s border-color;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: $color-blue-hover;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.content__result {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: $space-element-40;
+    border-radius: 6px;
+    padding: $space-element-20;
+    width: 300px;
+    
+    &-title {
+        align-self: center;
+        font-size: $font-size-30;
+    }
+    
+    &-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid #4F8EFF;
+    }
+
+    &-text {
+        padding: $space-element-20;
+    }
+}
+
+.content__result-show {
+    display: flex;
+}
+
+.footer {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4F8EFF;
+    color: white;
+}

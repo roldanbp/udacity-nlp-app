@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
+    <title>Analyzer</title>
 </head>
 <body>
-    Hola locooteee
+    <div class="wrapper">
+        <div class="content">
+            <div class="content__title-container">
+                <h1 class="title-container__text">Sentiment analyzer</h1>
+            </div>
+            <form class="content__form" action="">
+                <div class="content__form-input-container">
+                    <input placeholder="Type your text" type="text" id="input" class="input" required>
+                    <button type="submit" id="button" class="button">Analize</button>
+                </div>
+            </form>
+            <h1 id="message-error" class="content__message-error">Try with other URL</h1>
+            <div id="content__result" class="content__result">
+                <h1 class="content__result-title">Result</h1>
+                <div class="content__result-wrapper">
+                    <h2 id="model" class="content__result-text">Model</h2>
+                    <h2 id="model-value"class="content__result-text">90</h2>
+                </div>
+                <div class="content__result-wrapper">
+                    <h2 id="agreement" class="content__result-text">Agreement</h2>
+                    <h2 id="agreement-value" class="content__result-text">90</h2>
+                </div>
+                <div class="content__result-wrapper">
+                    <h2 id="confidence" class="content__result-text">Confidence</h2>
+                    <h2 id="confidence-value" class="content__result-text">90</h2>
+                </div>
+                <div class="content__result-wrapper">
+                    <h2 id="irony" class="content__result-text">Irony</h2>
+                    <h2 id="irony-value" class="content__result-text">90</h2>
+                </div>
+                <div class="content__result-wrapper">
+                    <h2 id="subjectivity" class="content__result-text">Subjectivity</h2>
+                    <h2 id="subjectivity-value" class="content__result-text">90</h2>
+                </div>
+                <div class="content__result-wrapper">
+                    <h2 id="score" class="content__result-text">Score</h2>
+                    <h2 id="score-value" class="content__result-text">90</h2>
+                </div>
+            </div>
+            <img id="loading" class="content__loading" src="./assets/loading.gif" alt="loading">
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© Roldan Barreto - Almunz Tech</p>
+    </footer>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+       </script>
 </body>
 </html>

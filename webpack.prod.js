@@ -1,11 +1,17 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     entry: './src/client/js',
-    mode: 'development',
-    devtool: 'source-map',
+    mode: 'production',
+    optimization: {
+        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     module: {
         rules: [
            {
@@ -17,8 +23,7 @@ module.exports = {
            },
            {
             test: /\.s[ac]ss$/i,
-            use: ["style-loader", "css-loader", "sass-loader",
-            ],
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
           },
         ]
     },
@@ -28,11 +33,8 @@ module.exports = {
             filename: './index.html'
         }),
         new CleanWebpackPlugin({
-            // Simulate the removal of files
             dry: true,
-            // Write Logs to Console
             verbose: true,
-            // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
@@ -41,5 +43,7 @@ module.exports = {
               { from: "./src/client/assets", to: "assets" },
             ],
         }),
+        new MiniCssExtractPlugin({ filename: "main.css" }),
+        new WorkboxPlugin.GenerateSW()
     ]
 }
